@@ -3,90 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Catalog (Frontend Only)</title>
+    <title>Product Catalog</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            width: 350px;
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
+            font-size: 26px;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .icon {
+            font-size: 28px;
         }
 
-        .card {
-            background: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .card img {
+        input {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
         }
 
-        .card h3 {
-            margin: 10px 0;
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1aa37a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
         }
 
-        .card p {
-            color: #555;
+        button:hover {
+            background: #178e6a;
         }
     </style>
 </head>
 <body>
 
-    <h1>Product Catalog</h1>
+    <div class="container">
+        <h1><span class="icon">📦</span> Product Catalog</h1>
 
-    <div class="product-container" id="products"></div>
+        <input type="text" placeholder="Product Name">
+        <input type="text" placeholder="Description">
+        <input type="number" placeholder="Price">
 
-    <script>
-        // ✅ Product list stored locally (NO BACKEND)
-        const products = [
-            {
-                name: "AirPods Pro",
-                description: "Noise-cancelling wireless earbuds.",
-                image: "https://m.media-amazon.com/images/I/61o7EzoRpBL._SX679_.jpg"
-            },
-            {
-                name: "Samsung Galaxy S23",
-                description: "Flagship smartphone with great performance.",
-                image: "https://m.media-amazon.com/images/I/719zApN1mhL.jpg"
-            },
-            {
-                name: "Sony Headphones",
-                description: "Wireless over-ear noise-cancelling headphones.",
-                image: "https://m.media-amazon.com/images/I/61eSXFi9nQL._AC_UY327_FMwebp_QL65_.jpg"
-            }
-        ];
-
-        const container = document.getElementById("products");
-
-        products.forEach(product => {
-            container.innerHTML += `
-                <div class="card">
-                    <img src="${product.image}" alt="${product.name}">
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                </div>
-            `;
-        });
-    </script>
+        <button>Add Product</button>
+    </div>
 
 </body>
 </html>
-
